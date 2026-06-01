@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "id": "litematicacenter",
+  "version": "${version}",
+  "name": "LitematicaCenter",
+  "description": "Automatically detects existing structures in the world matching loaded Litematica schematics and prompts you to auto-align them.",
+  "authors": [
+    "LeGaming"
+  ],
+  "contact": {
+    "sources": "https://github.com/legaming/LitematicaCenter"
+  },
+  "license": "CC-BY-NC-4.0",
+  "icon": "assets/litematicacenter/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "fabric-datagen": [
+      "legaming.tech.litematicacenter.client.LitematicaCenterDataGenerator"
+    ],
+    "client": [
+      "legaming.tech.litematicacenter.client.LitematicaCenterClient"
+    ],
+    "main": [
+      "legaming.tech.litematicacenter.LitematicaCenter"
+    ],
+    "modmenu": [
+      "legaming.tech.litematicacenter.client.LitematicaCenterModMenu"
+    ]
+  },
+  "mixins": [
+    "litematicacenter.mixins.json",
+    {
+      "config": "litematicacenter.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": ">=1.21"
+  },
+  "custom": {
+    "modmenu": {
+      "badges": [
+        "client"
+      ]
+    }
+  }
+}
